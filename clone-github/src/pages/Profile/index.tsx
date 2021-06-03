@@ -1,10 +1,10 @@
 import React from 'react';
 
- import { Container, Main, LeftSide, RightSide,Repos} from './styles';
+ import { Container, Main, LeftSide, RightSide,Repos,CalendarHeading} from './styles';
 
 import ProfileData from '../../components/ProfileData';
 import RepoCard from '../../components/RepoCard';
-
+import RandomCalendar from '../../components/RandomCalendar';
 
 const Profile: React.FC = () => {
   return (
@@ -26,7 +26,7 @@ const Profile: React.FC = () => {
         </LeftSide>
         <RightSide>
           <Repos>
-            <h2>rando Repo</h2>
+            <h2>Repositorios Todos </h2>
             <div>
               {[1,2,3,4,5,6].map(index => (
                 <RepoCard 
@@ -45,6 +45,11 @@ const Profile: React.FC = () => {
             </div>
 
           </Repos>
+          <CalendarHeading>
+                Calendario alearios
+          </CalendarHeading>
+
+          <RandomCalendar />
         </RightSide>
       </Main>
     </Container>
