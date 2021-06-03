@@ -18,6 +18,7 @@ import React from 'react';
   name: string;
   avatarUrl: string;
   followers: number;
+  following: number;
   company?: string;
   location?: string;
   email?: string;
@@ -29,6 +30,7 @@ const ProfileData: React.FC<IProps> = ({
   name,
   avatarUrl,
   followers,
+  following,
   company,
   location,
   email,

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import { 
     RiGroupLine,
     RiBuilding4Line,
@@ -12,16 +12,86 @@ export const Container = styled.div`
 `;
 
 
-export const Flex = styled.div``;
+export const Flex = styled.div`
+    display:flex;
+    align-items: center;
+    
+    > div {
+        margin-left: 24px;
+    
 
-export const Avatar = styled.div``;
+        > h1 {
+            font-size: 26px;
+            line-height: 1.25;
+            color: var(--gray-dark);
+            font-weight: 600;
+        }
+        > h2 {
+            font-size: 20px;
+            color: var(--username);
+            font-weight: 300;
+        }
+    }
+`;
 
-export const Row = styled.div``;
+export const Avatar = styled.img`
+    width: 16%;
+    border-radius: 50%;
+`;
 
-export const PeopleIcon = styled(RiGroupLine)``;
+export const Row = styled.ul`
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+
+    > li {
+        display: flex;
+        align-items: center;
+
+        > span {
+            font-size: 14px;
+            color: var(--gray);
+
+        }
+        > * {
+            margin-right: 5px;
+        }
+    }
+`;
+
+const iconsCss = css`
+    width: 16;
+    height: 16px;
+    fill: var( --icon);
+    flex-shrink: 0;
 
 
-export const Column = styled.div``;
+`;
+
+export const PeopleIcon = styled(RiGroupLine)`
+    ${iconsCss}
+
+    `;
+
+
+export const Column = styled.ul`
+    li {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+    li + li {
+        margin-top: 10px;
+    }
+    span {
+        margin-left: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+`;
 
 export const CompanyIcon = styled(RiBuilding4Line)``;
 
