@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useState} from 'react';
 import {useParams} from 'react-router-dom'
 
 
@@ -17,32 +17,61 @@ import {useParams} from 'react-router-dom'
 import ProfileData from '../../components/ProfileData';
 import RepoCard from '../../components/RepoCard';
 import RandomCalendar from '../../components/RandomCalendar';
+import { APIUser,APIRepo } from '../../@types';
+
+interface Data {
+
+  user?:APIUser;
+  repos?: APIRepo[];
+  error?: string;
+}
 
 
 const Profile: React.FC = () => {
   const {username = 'AllisonVinicius'} = useParams();
+  const {data, setData} = useState<Data>();
 
   useEffect(() => {
     Promise.all([
       fetch(`https://api.github.com/users/${username}`), //consumindo api git
       fetch(`https://api.github.com/users/${username}/repos`),
 ,    ]).then(async response => {
-      console.log(response);
-     })
+        const [userResponse,reposResponse] = response;
+      
+        if(userResponse.status === 404){
+          setData({ error: 'user not found'});
+          return;
+        }
+        const user = await userResponse.json();
+        const repos = await reposResponse.json();
+
+        setData({
+          user,
+          repos,
+        });
+     });
   },[username]);
 
+    if (data?.error){
+      return <h1>{data.error}</h1>
+
+    }
+
+    if (!data?.user || !data?.repos){
+      return <h1>Loading..</h1>
+    }
 
   const TabContent = () => (
       <div className="content">
         <RepoIcon />
         <span className="label">Repositorios</span>
-        <span className="number">26</span>
+        <span className="number">{data.user.public_repos}</span>
 
-        <span className="label">Oveview</span>
+        {/* <span className="label">Oveview</span>
         
         <span className="label">Projects</span>
         
-        <span className="label">Packges</span>
+        <span className="label">Packges</span> */}
         
 
         <span></span>
@@ -62,15 +91,15 @@ const Profile: React.FC = () => {
       <Main>
         <LeftSide>
           <ProfileData 
-            username={'AllisonVinicius'}
-            name={'Allison Vinicius'}
-            avatarUrl={'https://avatars.githubusercontent.com/u/39178001?v=4'}
-            followers={887}
-            following={4}
-            company={'Nenhuma'}
-            location={'Corumbá,Brazil'}
-            email={'alllisonvinicius63@gmail.com'}
-            blog={'https://www.linkedin.com/in/allison-vinicius-b73a9a147/'}
+            username={data.user.login}
+            name={data.user.name}
+            avatarUrl={data.user.avatar_url}
+            followers={data.user.followers}
+            following={data.user.following}
+            company={data.user.company}
+            location={data.user.location}
+            email={data.user.email}
+            blog={data.user.blog}
           
           />
         </LeftSide>
