@@ -1,6 +1,6 @@
 clone-git hub afim avaliativo
 
-Feito yusando tecnologias React  e TypeScript.
+Feito usando tecnologias React  e TypeScript.
 
 Starta projeto!
 
