@@ -23,6 +23,14 @@ const Profile: React.FC = () => {
         <RepoIcon />
         <span className="label">Repositorios</span>
         <span className="number">26</span>
+
+        <span className="label">Oveview</span>
+        
+        <span className="label">Projects</span>
+        
+        <span className="label">Packges</span>
+        
+
         <span></span>
       </div>
   );
