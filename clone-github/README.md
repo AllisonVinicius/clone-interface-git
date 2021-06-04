@@ -1,1 +1,1 @@
-clone-git hub afim de aprendizado
+clone-git hub afim avaliativo
