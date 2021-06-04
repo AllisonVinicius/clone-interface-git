@@ -1,12 +1,31 @@
 import React from 'react';
 
- import { Container, Main, LeftSide, RightSide,Repos,CalendarHeading} from './styles';
+ import { 
+   Container,
+   Main,
+   LeftSide, 
+   RightSide,
+   Repos,
+   CalendarHeading,
+   RepoIcon,
+   Tab,
+  } from './styles';
 
 import ProfileData from '../../components/ProfileData';
 import RepoCard from '../../components/RepoCard';
 import RandomCalendar from '../../components/RandomCalendar';
 
+
 const Profile: React.FC = () => {
+
+  const TabContent = () => {
+      <div className="content">
+        <RepoIcon />
+        <span className="label">Repositorios</span>
+        <span className="number">26</span>
+        <span></span>
+      </div>
+  }
   return (
     <Container>
       <Main>
@@ -25,7 +44,14 @@ const Profile: React.FC = () => {
           />
         </LeftSide>
         <RightSide>
-          <Repos>
+          <Tab className="mobile">
+            <TabContent />
+            <span className="line"/>
+              
+              
+          </Tab>
+            
+            <Repos>
             <h2>Repositorios Todos </h2>
             <div>
               {[1,2,3,4,5,6].map(index => (
