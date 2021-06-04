@@ -112,18 +112,17 @@ const Profile: React.FC = () => {
             <Repos>
             <h2>Repositorios Todos </h2>
             <div>
-              {[1,2,3,4,5,6].map(index => (
+              {data.repos.map((index) => (
                 <RepoCard 
-                  key={index}
-                  username={'AllisonVinicius'}
-                  reponame={'darhboard-react'}
-                  description={'git clone'}
-                  language={index % 3 ===  0 ?'JavaScript' : 'TypeScript'}
-                  stars={5}
-                  forks={4}
+                  key={index.name}
+                  username={index.owner.login}
+                  reponame={index.name}
+                  description={index.description}
+                  language={index.language}
+                  stars={index.stargazers_count}
+                  forks={index.forks}
                 
                 />
-
 
               ))};
             </div>
