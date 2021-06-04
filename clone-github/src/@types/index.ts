@@ -1,9 +1,9 @@
 export interface APIUser {
     login: string;
     name:string;
-    followes: string;
-    following: string;
-    public_repo: number;
+    followers: number;
+    following: number;
+    public_repos?: number;
     avatar_url: string;
     blog?: string;
     company?: string;

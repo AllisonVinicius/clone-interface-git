@@ -54,14 +54,16 @@ export const Repos = styled.div`
         margin-top: 8px;
         display: grid;
         grid-gap: 16px;
-        grid-template-columns: 1fr;
+
+        //deixa tudo em apenas 1 coluna
+        /* grid-template-columns: 1fr;
         
         @media(min-width: 768px ){
             grid-template-columns: 1fr 1fr; 
             grid-auto-rows: minmax(min-content, max-content);
             
 
-        }
+        } */
     }
 
 `;

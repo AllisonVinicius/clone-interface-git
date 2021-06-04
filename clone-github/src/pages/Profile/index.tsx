@@ -29,7 +29,7 @@ interface Data {
 
 const Profile: React.FC = () => {
   const {username = 'AllisonVinicius'} = useParams();
-  const {data, setData} = useState<Data>();
+  const [data, setData] = useState<Data>();
 
   useEffect(() => {
     Promise.all([
@@ -65,7 +65,7 @@ const Profile: React.FC = () => {
       <div className="content">
         <RepoIcon />
         <span className="label">Repositorios</span>
-        <span className="number">{data.user.public_repos}</span>
+        <span className="number">{data.user?.public_repos}</span>
 
         {/* <span className="label">Oveview</span>
         
