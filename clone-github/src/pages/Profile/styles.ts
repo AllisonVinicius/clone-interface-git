@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import {RiBookMarkLine} from 'react-icons/ri';
+import {FiBookOpen} from 'react-icons/fi';
+import {DiNetbeans} from 'react-icons/di';
+import {IoReaderOutline} from 'react-icons/io5';
 
 export const Container = styled.div`
     --horizontalPadding: 16px;
@@ -55,15 +58,9 @@ export const Repos = styled.div`
         display: grid;
         grid-gap: 16px;
 
-        //deixa tudo em apenas 1 coluna
-        /* grid-template-columns: 1fr;
-        
-        @media(min-width: 768px ){
-            grid-template-columns: 1fr 1fr; 
-            grid-auto-rows: minmax(min-content, max-content);
-            
+      
 
-        } */
+        
     }
 
 `;
@@ -79,9 +76,30 @@ export const RepoIcon = styled(RiBookMarkLine)`
     height: 16px;
     margin-right: 4px;
 
+`;
 
+export const RepoIconOverVew = styled(FiBookOpen)`
+    width: 20px;
+    height: 16px;
+    margin-right: 4px;
 
 `;
+
+export const RepoIconProjects = styled(RiBookMarkLine)`
+    width: 25px;
+    height: 16px;
+    margin-right: 4px;
+
+`;
+
+export const RepoIconPackges = styled(DiNetbeans)`
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+
+`;
+
+
 export const Tab = styled.div`
     background: var( --primary);
     .content {

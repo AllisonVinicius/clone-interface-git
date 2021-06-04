@@ -12,6 +12,9 @@ import {useParams} from 'react-router-dom'
    CalendarHeading,
    RepoIcon,
    Tab,
+   RepoIconOverVew,
+   RepoIconPackges,
+   RepoIconProjects
   } from './styles';
 
 import ProfileData from '../../components/ProfileData';
@@ -62,16 +65,19 @@ const Profile: React.FC = () => {
     }
 
   const TabContent = () => (
-      <div className="content">
+    <div className="content">
+        <RepoIconOverVew />
+       <span className="label">Oveview</span>
+
         <RepoIcon />
         <span className="label">Repositorios</span>
         <span className="number">{data.user?.public_repos}</span>
-
-        {/* <span className="label">Oveview</span>
         
+        <RepoIconProjects />
         <span className="label">Projects</span>
         
-        <span className="label">Packges</span> */}
+          <RepoIconPackges />
+        <span className="label">Packges</span> 
         
 
         <span></span>

@@ -31,10 +31,10 @@ export default createGlobalStyle`
             const theme = props.theme;
 
             let append = '';
-            Ob
-
-        }
+            Object.entries(theme).forEach(([props,value]) => {
+                append += `--${props}: ${value};`;
+            })
+            return append;
+        }}
     }
-
-
 `;
