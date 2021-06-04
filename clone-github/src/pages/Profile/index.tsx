@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useParams} from 'react-router-dom'
+
+
 
  import { 
    Container,
@@ -17,6 +20,17 @@ import RandomCalendar from '../../components/RandomCalendar';
 
 
 const Profile: React.FC = () => {
+  const {username = 'AllisonVinicius'} = useParams();
+
+  useEffect(() => {
+    Promise.all([
+      fetch(`https://api.github.com/users/${username}`), //consumindo api git
+      fetch(`https://api.github.com/users/${username}/repos`),
+,    ]).then(async response => {
+      console.log(response);
+     })
+  },[username]);
+
 
   const TabContent = () => (
       <div className="content">
