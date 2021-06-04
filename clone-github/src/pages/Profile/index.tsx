@@ -18,16 +18,25 @@ import RandomCalendar from '../../components/RandomCalendar';
 
 const Profile: React.FC = () => {
 
-  const TabContent = () => {
+  const TabContent = () => (
       <div className="content">
         <RepoIcon />
         <span className="label">Repositorios</span>
         <span className="number">26</span>
         <span></span>
       </div>
-  }
+  );
   return (
     <Container>
+      <Tab className="desktop">
+        <div className="wrapper">
+          <span className="offset" />
+          <TabContent />
+        </div>
+        
+        <span className="line" />
+      </Tab>
+
       <Main>
         <LeftSide>
           <ProfileData 
@@ -46,9 +55,7 @@ const Profile: React.FC = () => {
         <RightSide>
           <Tab className="mobile">
             <TabContent />
-            <span className="line"/>
-              
-              
+            <span className="line"/> 
           </Tab>
             
             <Repos>
